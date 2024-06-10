@@ -221,6 +221,13 @@ export class TitlePhase extends Phase {
                 setModeAndEnd(GameModes.ENDLESS);
                 return true;
               }
+            },
+            {
+              label: "Battle Frontier",
+              //label: GameMode.getModeName(GameModes.BATTLE_FRONTIER),
+              handler: () => {
+                setMode(Mode.BATTLE_FRONTIER);
+              }
             }
           ];
           if (this.scene.gameData.unlocks[Unlockables.SPLICED_ENDLESS_MODE]) {
