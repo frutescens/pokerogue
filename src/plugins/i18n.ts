@@ -200,6 +200,7 @@ declare module "i18next" {
       abilityTriggers: SimpleTranslationEntries;
       achv: AchievementTranslationEntries;
       battle: SimpleTranslationEntries;
+      battleFrontier: SimpleTranslationEntries;
       battleMessageUiHandler: SimpleTranslationEntries;
       berry: BerryTranslationEntries;
       biome: SimpleTranslationEntries;

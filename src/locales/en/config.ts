@@ -2,6 +2,7 @@ import { ability } from "./ability";
 import { abilityTriggers } from "./ability-trigger";
 import { PGFachv, PGMachv } from "./achv";
 import { battle } from "./battle";
+import { battleFrontier } from "./battle-frontier";
 import { battleMessageUiHandler } from "./battle-message-ui-handler";
 import { berry } from "./berry";
 import { biome } from "./biome";
@@ -44,6 +45,7 @@ export const enConfig = {
   ability: ability,
   abilityTriggers: abilityTriggers,
   battle: battle,
+  battleFrontier: battleFrontier,
   battleMessageUiHandler: battleMessageUiHandler,
   berry: berry,
   biome: biome,

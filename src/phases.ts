@@ -64,6 +64,7 @@ import { TextStyle, addTextObject } from "./ui/text";
 import { Type } from "./data/type";
 import { BerryUsedEvent, EncounterPhaseEvent, MoveUsedEvent, TurnEndEvent, TurnInitEvent } from "./battle-scene-events";
 import { ExpNotification } from "./enums/exp-notification";
+import { FrontierMenu, FrontierFacility } from "./battle-frontier.ts";
 
 
 export class LoginPhase extends Phase {
@@ -223,10 +224,12 @@ export class TitlePhase extends Phase {
               }
             },
             {
-              label: "Battle Frontier",
-              //label: GameMode.getModeName(GameModes.BATTLE_FRONTIER),
+              label: i18next.t("battleFrontier:BattleFrontier"),
               handler: () => {
-                setMode(Mode.BATTLE_FRONTIER);
+                const letsgo = new FrontierMenu(this.scene);
+                this.scene.ui.setMode(Mode.MESSAGE);
+                this.scene.ui.clearText();
+                letsgo.showFrontierOptions(FrontierFacility.BATTLE_FRONTIER);
               }
             }
           ];
