@@ -20,52 +20,52 @@ export enum FrontierFacility {
 }
 
 const frontierOptions: OptionSelectItem[] = [
-	{
-      label: i18next.t("battleFrontier:BattleFactory"),
-      onhover: () => {
-        console.log("hello");
-      },
-      handler: () => {
-        this.scene.ui.setMode(Mode.MESSAGE);
-        this.scene.ui.clearText();
-        showFrontierOptions(FrontierFacility.BATTLE_FACTORY);
-      }
+  {
+    label: i18next.t("battleFrontier:BattleFactory"),
+    onhover: () => {
+      console.log("hello");
+    },
+    handler: () => {
+      this.scene.ui.setMode(Mode.MESSAGE);
+      this.scene.ui.clearText();
+      showFrontierOptions(FrontierFacility.BATTLE_FACTORY);
+    }
   	},
   	{
-      label: i18next.t("battleFrontier:BattleTower"),
-      handler: () => {
-        this.scene.ui.setMode(Mode.MESSAGE);
-        this.scene.ui.clearText();
-        showFrontierOptions(FrontierFacility.BATTLE_TOWER);
-        return true;
-      }
-    },
-    {
-      label:i18next.t("battleFrontier:BattlePike"),
-      handler: () => {
-        this.scene.ui.setMode(Mode.MESSAGE);
-        this.scene.ui.clearText();
-        showFrontierOptions(FrontierFacility.BATTLE_PIKE)
-        return true;
-      }
+    label: i18next.t("battleFrontier:BattleTower"),
+    handler: () => {
+      this.scene.ui.setMode(Mode.MESSAGE);
+      this.scene.ui.clearText();
+      showFrontierOptions(FrontierFacility.BATTLE_TOWER);
+      return true;
     }
+  },
+  {
+    label:i18next.t("battleFrontier:BattlePike"),
+    handler: () => {
+      this.scene.ui.setMode(Mode.MESSAGE);
+      this.scene.ui.clearText();
+      showFrontierOptions(FrontierFacility.BATTLE_PIKE);
+      return true;
+    }
+  }
 ];
 
 const factoryOptions: OptionSelectItem[] = [
-	{
-      label: i18next.t("battleFrontier:battleFactoryNewGame"),
-      handler: () => {
-        showFrontierOptions(FrontierFacility.BATTLE_FACTORY);
-        return true;
-      }
+  {
+    label: i18next.t("battleFrontier:battleFactoryNewGame"),
+    handler: () => {
+      showFrontierOptions(FrontierFacility.BATTLE_FACTORY);
+      return true;
+    }
   	},
   	{
-      label: i18next.t("battleFrontier:battleFactoryLoadSeed"),
-      handler: () => {
-        showFrontierOptions(FrontierFacility.BATTLE_TOWER);
-        return true;
-      }
+    label: i18next.t("battleFrontier:battleFactoryLoadSeed"),
+    handler: () => {
+      showFrontierOptions(FrontierFacility.BATTLE_TOWER);
+      return true;
     }
+  }
 ];
 
 const towerOptions: OptionSelectItem[] = [];
@@ -82,7 +82,7 @@ export class FrontierMenu extends Phase {
   }
 
   showFrontierOptions(facility: FrontierFacility): void {
-    switch(facility) {
+    switch (facility) {
   	 case FrontierFacility.BATTLE_FRONTIER:
   	   this.scene.ui.showText(i18next.t("battleFrontier:selectFrontierFacility"), null, () => this.scene.ui.setOverlayMode(Mode.OPTION_SELECT, { options: frontierOptions }));
   	   break;

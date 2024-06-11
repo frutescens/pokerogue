@@ -11,4 +11,4 @@ export const battleFrontier: SimpleTranslationEntries = {
   "BattleFactory": "Battle Factory",
   "BattleTower": "Battle Tower",
   "BattlePike": "Battle Pike"
-}
+};
