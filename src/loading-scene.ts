@@ -327,6 +327,9 @@ export class LoadingScene extends SceneBase {
     this.loadBgm("evolution", "bw/evolution.mp3");
     this.loadBgm("evolution_fanfare", "bw/evolution_fanfare.mp3");
 
+    //Battle Frontier Assets
+    this.loadImage("battle_frontier", "factory", "party_choice_bg.png");
+
     this.load.plugin("rextexteditplugin", "https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rextexteditplugin.min.js", true);
 
     this.loadLoadingScreen();

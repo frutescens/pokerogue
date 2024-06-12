@@ -45,6 +45,7 @@ import SettingsKeyboardUiHandler from "#app/ui/settings/settings-keyboard-ui-han
 import KeyboardBindingUiHandler from "#app/ui/settings/keyboard-binding-ui-handler";
 import SettingsDisplayUiHandler from "./settings/settings-display-ui-handler";
 import SettingsAudioUiHandler from "./settings/settings-audio-ui-handler";
+import BattleFactoryUiHandler from "./battle-factory-ui-handler";
 
 export enum Mode {
   MESSAGE,
@@ -94,7 +95,8 @@ const transitionModes = [
   Mode.EGG_HATCH_SCENE,
   Mode.EGG_LIST,
   Mode.EGG_GACHA,
-  Mode.CHALLENGE_SELECT
+  Mode.CHALLENGE_SELECT,
+  Mode.BATTLE_FACTORY
 ];
 
 const noTransitionModes = [
@@ -177,7 +179,8 @@ export default class UI extends Phaser.GameObjects.Container {
       new SessionReloadModalUiHandler(scene),
       new UnavailableModalUiHandler(scene),
       new OutdatedModalUiHandler(scene),
-      new GameChallengesUiHandler(scene)
+      new GameChallengesUiHandler(scene),
+      new BattleFactoryUiHandler(scene)
     ];
   }
 

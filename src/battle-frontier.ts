@@ -10,8 +10,6 @@ import {Button} from "./enums/buttons";
 import i18next from "./plugins/i18n";
 import { OptionSelectConfig, OptionSelectItem } from "./ui/abstact-option-select-ui-handler";
 
-
-
 export enum FrontierFacility {
 	BATTLE_FRONTIER,
 	BATTLE_FACTORY,
@@ -26,9 +24,10 @@ const frontierOptions: OptionSelectItem[] = [
       console.log("hello");
     },
     handler: () => {
-      this.scene.ui.setMode(Mode.MESSAGE);
+      this.setMode(Mode.MESSAGE);
       this.scene.ui.clearText();
-      showFrontierOptions(FrontierFacility.BATTLE_FACTORY);
+      this.end();
+      setMode(Mode.BATTLE_FACTORY);
     }
   	},
   	{
@@ -36,7 +35,6 @@ const frontierOptions: OptionSelectItem[] = [
     handler: () => {
       this.scene.ui.setMode(Mode.MESSAGE);
       this.scene.ui.clearText();
-      showFrontierOptions(FrontierFacility.BATTLE_TOWER);
       return true;
     }
   },
@@ -45,24 +43,6 @@ const frontierOptions: OptionSelectItem[] = [
     handler: () => {
       this.scene.ui.setMode(Mode.MESSAGE);
       this.scene.ui.clearText();
-      showFrontierOptions(FrontierFacility.BATTLE_PIKE);
-      return true;
-    }
-  }
-];
-
-const factoryOptions: OptionSelectItem[] = [
-  {
-    label: i18next.t("battleFrontier:battleFactoryNewGame"),
-    handler: () => {
-      showFrontierOptions(FrontierFacility.BATTLE_FACTORY);
-      return true;
-    }
-  	},
-  	{
-    label: i18next.t("battleFrontier:battleFactoryLoadSeed"),
-    handler: () => {
-      showFrontierOptions(FrontierFacility.BATTLE_TOWER);
       return true;
     }
   }
