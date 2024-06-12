@@ -101,7 +101,7 @@ export default class BattleFactoryUiHandler extends MessageUiHandler {
 
   setup() {
   	const ui = this.getUi();
-  	
+
   	this.battleFactoryContainer = this.scene.add.container(0, -this.scene.game.canvas.height / 6);
   	this.battleFactoryContainer.setVisible(false);
   	ui.add(this.battleFactoryContainer);
@@ -112,6 +112,6 @@ export default class BattleFactoryUiHandler extends MessageUiHandler {
 
   	const battleFactoryBg = this.scene.add.image(0, 0, "battle_factory");
   	battleFactoryBg.setOrigin(0, 0);
-  	this.battleFactoryContainer.add(battleFactoryBg);  
+  	this.battleFactoryContainer.add(battleFactoryBg);
   }
- }
+}
