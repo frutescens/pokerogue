@@ -29,6 +29,7 @@ let wikiUrl = "https://wiki.pokerogue.net/start";
 const discordUrl = "https://discord.gg/uWpTfdKG49";
 const githubUrl = "https://github.com/pagefaultgames/pokerogue";
 const redditUrl = "https://www.reddit.com/r/pokerogue";
+const changelogUrl = "https://wiki.pokerogue.net/changelog:current";
 
 export default class MenuUiHandler extends MessageUiHandler {
   private menuContainer: Phaser.GameObjects.Container;
@@ -286,6 +287,14 @@ export default class MenuUiHandler extends MessageUiHandler {
         label: "Reddit",
         handler: () => {
           window.open(redditUrl, "_blank")?.focus();
+          return true;
+        },
+        keepOpen: true
+      },
+      {
+        label: "Changelog",
+        handler: () => {
+          window.open(changelogUrl, "_blank")?.focus();
           return true;
         },
         keepOpen: true
