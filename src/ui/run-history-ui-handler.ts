@@ -147,7 +147,8 @@ export default class RunHistoryUiHandler extends MessageUiHandler {
     if (timestamps.length > 1) {
       timestampsNo.sort((a, b) => b - a);
     }
-    const entryCount = timestamps.length;
+    const minEntry = 3;
+    const entryCount = minEntry >= timestamps.length ? minEntry : timestamps.length;
     for (let s = 0; s < entryCount; s++) {
       const entry = new RunEntryContainer(this.scene, response[timestampsNo[s]], s);
       this.scene.add.existing(entry);
@@ -224,8 +225,15 @@ class RunEntryContainer extends Phaser.GameObjects.Container {
     this.slotId = slotId;
     this.entryData = entryData;
 
-    this.setup(this.entryData);
-
+    const slotWindow = addWindow(this.scene, 0, 0, 304, 52);
+    this.add(slotWindow);
+    if (entryData) {
+      this.setup(this.entryData);
+    } else {
+      const emptyLabel = addTextObject(this.scene, 152, 26, i18next.t("saveSlotSelectUiHandler:empty"), TextStyle.WINDOW);
+      emptyLabel.setOrigin(0.5, 0.5);
+      this.add(emptyLabel);
+    }
   }
 
   /**
@@ -242,9 +250,6 @@ class RunEntryContainer extends Phaser.GameObjects.Container {
 
     const victory = run.isVictory;
     const data = this.scene.gameData.parseSessionData(JSON.stringify(run.entry));
-
-    const slotWindow = addWindow(this.scene, 0, 0, 304, 52);
-    this.add(slotWindow);
 
     // Run Result: Victory
     if (victory) {
