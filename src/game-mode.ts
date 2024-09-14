@@ -342,7 +342,7 @@ export function getGameMode(gameMode: GameModes): GameMode {
   case GameModes.SPLICED_ENDLESS:
     return new GameMode(GameModes.SPLICED_ENDLESS, { isEndless: true, hasShortBiomes: true, hasRandomBosses: true, isSplicedOnly: true });
   case GameModes.DAILY:
-    return new GameMode(GameModes.DAILY, { isDaily: true, hasTrainers: true, hasNoShop: true });
+    return new GameMode(GameModes.DAILY, { isDaily: true, hasTrainers: true, hasNoShop: true, isChallenge: true });
   case GameModes.CHALLENGE:
     return new GameMode(GameModes.CHALLENGE, { isClassic: true, hasTrainers: true, isChallenge: true }, classicFixedBattles);
   }

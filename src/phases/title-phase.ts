@@ -1,7 +1,7 @@
 import { loggedInUser } from "#app/account";
 import BattleScene from "#app/battle-scene";
 import { BattleType } from "#app/battle";
-import { getDailyRunStarters, fetchDailyRunSeed } from "#app/data/daily-run";
+import { setDailyChallengeModifiers, getDailyRunStarters, fetchDailyRunSeed } from "#app/data/daily-run";
 import { Gender } from "#app/data/gender";
 import { getBiomeKey } from "#app/field/arena";
 import { GameModes, GameMode, getGameMode } from "#app/game-mode";
@@ -199,6 +199,8 @@ export class TitlePhase extends Phase {
 
         this.scene.money = this.scene.gameMode.getStartingMoney();
 
+        setDailyChallengeModifiers(this.scene, seed);
+        console.log(this.scene.gameMode);
         const starters = getDailyRunStarters(this.scene, seed);
         const startingLevel = this.scene.gameMode.getStartingLevel();
 
