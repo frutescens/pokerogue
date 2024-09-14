@@ -31,14 +31,14 @@ export function setDailyChallengeModifiers(scene: BattleScene, seed: string) {
   const challengeSelected = Utils.randSeedItem(eligibleChallenges);
   let challengeValue: integer = 0;
   switch (challengeSelected) {
-    case Challenges.SINGLE_GENERATION:
-      challengeValue = Utils.randSeedInt(9, 1);
-      break;
-    case Challenges.SINGLE_TYPE:
-      challengeValue = Utils.randSeedInt(18, 1);
-      break;
-    case Challenges.INVERSE_BATTLE:
-      challengeValue = 1;  
+  case Challenges.SINGLE_GENERATION:
+    challengeValue = Utils.randSeedInt(9, 1);
+    break;
+  case Challenges.SINGLE_TYPE:
+    challengeValue = Utils.randSeedInt(18, 1);
+    break;
+  case Challenges.INVERSE_BATTLE:
+    challengeValue = 1;
   }
   scene.gameMode.challenges.forEach(c => {
     if (c.id === challengeSelected) {
@@ -66,7 +66,7 @@ export function getDailyRunStarters(scene: BattleScene, seed: string): Starter[]
     starterCosts.push(Math.min(Math.round(3.5 + Math.abs(Utils.randSeedGauss(1))), 8));
     starterCosts.push(Utils.randSeedInt(9 - starterCosts[0], 1));
     starterCosts.push(10 - (starterCosts[0] + starterCosts[1]));
-    console.log(starterCosts)
+    console.log(starterCosts);
     let c = 0;
     while (c < starterCosts.length) {
       const cost = starterCosts[c];
@@ -75,8 +75,7 @@ export function getDailyRunStarters(scene: BattleScene, seed: string): Starter[]
         .filter(s => speciesStarters[s] === cost);
       if (costSpecies.length === 0) {
         c += 1;
-      }
-      else {
+      } else {
         const randPkmSpecies = getPokemonSpecies(Utils.randSeedItem(costSpecies));
         const starterSpecies = getPokemonSpecies(randPkmSpecies.getTrainerSpeciesForLevel(startingLevel, true, PartyMemberStrength.STRONGER));
         const starter = getDailyRunStarter(scene, starterSpecies, startingLevel);
@@ -106,8 +105,7 @@ function getDailyRunStarter(scene: BattleScene, starterSpeciesForm: PokemonSpeci
     };
     pokemon.destroy();
     return starter;
-  }
-  else {
+  } else {
     pokemon.destroy();
     return;
   }
