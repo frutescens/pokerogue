@@ -1,0 +1,141 @@
+Word after "Pokedex" in filename used to indicate the name of the skin the asset belongs to.
+(In this case only the Default skin exists)
+If a skin does not introduce a unique asset then UI can default to default skin's design for it
+
+
+Pokedex_Default_Background.png - Used as backdrop behind the entire pokedex interface
+
+Pokedex_Default_DexShell_Placeholder.png - Visual for the physical casing/shell of the pokedex
+
+Pokedex_Default_ScreensOverlay.png - Visual for the backdrop of the separate screens of the pokdex
+
+Pokedex_Default_PageBack.png - Used in pages: Info, Stats, Mastery, Evolutions & Forms
+
+Pokedex_Default_PageBack_List.png - Used in pages: Moves, Main Pokémon Select
+
+Pokedex_Default_SubMenu.png - Used in pages: Moves, Mastery, Main Pokémon Select (If initial context menu is used)
+
+Pokedex_Default_Button_SubMenuButton.png - Used in pages: Main Pokémon Select (If initial context menu is used)
+
+Pokedex_Default_Button_Back.png - Used in pages: Mastery, Pokedex Skins Select
+
+Pokedex_Default_Button_MiscIcons.png - Used in pages: Moves (Sort, Search), Main Pokémon Select (Sort, Search, Settings)
+
+Pokedex_Default_Button_Quit.png - Used in pages: Main Pokémon Select (If initial context menu is used)
+
+Pokedex_Default_FilterIndicator.png - Used in pages: Moves, Main Pokémon Select (For indicating whether a filter is on/off)
+
+Pokedex_Default_PageDivider_Long.png - Used in pages: Info, Moves, Evolutions & Forms
+
+Pokedex_Default_PageDivider_Medium.png - Used in pages: Stats
+
+Pokedex_Default_PageDivider_Short.png - Used in pages: Stats, Mastery
+
+Pokedex_Default_ScrollTab.png - Used in pages: Moves, Evolutions & Forms, Main Pokémon Select (Anywhere with a scrollable list)
+
+Pokedex_Default_Searchbar.png - Used in pages: Moves, Main Pokémon Select
+
+
+PAGE TABS & ICONS
+====
+Pokedex_Default_PageIcon_Info.png - Tab icon for the Info page
+
+Pokedex_Default_PageIcon_Stats.png - Tab icon for the Stats page
+
+Pokedex_Default_PageIcon_Moves.png - Tab icon for the Moves page
+
+Pokedex_Default_PageIcon_Mastery.png - Tab icon for the Mastery page
+
+Pokedex_Default_PageIcon_EvoForm.png - Tab icon for the Evolutions & Forms page
+
+Pokedex_Default_PageNameHeader.png - Header box for the name of the currently-viewed page
+
+Pokedex_Default_PageTab.png - Unselected tab
+
+Pokedex_Default_PageTab_Selected.png - Currently selected tab, displayed above PageNameHeader to blend into the outline.
+
+
+INFO
+====
+Pokedex_Default_Info_Header1.png - Outlines the header for the Pokémon's habitat section
+
+Pokedex_Default_Info_EncounterChance.png - Outlines the general encounter chance of a Pokémon (Hidden if N/A)
+
+Pokedex_Default_Info_EncounterChanceBoss - Outlines the general encounter chance of a Pokémon as a boss spawn (Hidden if N/A)
+
+Pokedex_Default_Info_BiomeFrame.png - Outline for biome thumbnail images
+
+Pokedex_Default_Info_BiomeScroller.png - Button used to scroll left/right through biomes the Pokémon can be encountered in.
+
+Pokedex_Default_Info_StatsIcons.png - Icons for tracked stats of the Pokémon
+
+Biome Thumbnails Folder: Folder Containing Biome thumbnails (Currently only Grassy Field placeholder)
+
+
+STATS
+====
+Pokedex_Default_Stats_AbilityBox.png - Outlines a Pokémon's ability
+
+Pokedex_Default_Stats_AbilityBoxHidden.png - Outlines a Pokémon's hidden ability (hidden if N/A)
+
+Pokedex_Default_Stats_PassiveBox.png - Outlines and houses explanation for Pokémon's passive ability
+
+Pokedex_Default_Stats_AbilityLocked.png - Icon for indicating an un-owned ability
+
+Pokedex_Default_Stats_BaseStatsTable.png - Table for displaying Pokémon's base stats
+
+Pokedex_Default_Stats_MiscInfoBox.png - Small box for misc. info beneath base stats table
+
+
+MOVES
+====
+Pokedex_Default_Moves_TopBar.png - Houses filters and sort/search buttons
+
+Pokedex_Default_Moves_MoveTemplate.png - Template for moves and separate learn methods
+
+Pokedex_Default_Moves_MoveTypes.png - Icons for move types
+
+
+MASTERY
+====
+Pokedex_Default_Mastery_ShinyCheckbox.png - Checkboxes for owned shiny rarities
+
+Pokedex_Default_Mastery_GenderCheckbox1.png - Gender checkbox for Pokémon with 1 gender (hidden if genderless)
+
+Pokedex_Default_Mastery_GenderCheckbox2.png - Gender checkbox for Pokémon with 2 genders (hidden if genderless)
+
+Pokedex_Default_Mastery_ShinyIcons.png - Icons for shiny checkbox (greyed out if locked, or hidden alternatively)
+
+Pokedex_Default_Mastery_GenderIcons - Icons for gender checkbox (greyed out if locked, or hidden alternatively)
+
+Pokedex_Default_Mastery_PriceReduction1.png - Starter cost reduction 1 checkbox (displays candy cost if locked)
+
+Pokedex_Default_Mastery_PriceReduction2.png - Starter cost reduction 2 checkbox (displays candy cost if locked)
+
+Pokedex_Default_Mastery_PassiveCheckbox.png - Passive ability unlock checkbox (displays candy cost if locked)
+
+Pokedex_Default_Mastery_GreenCheck.png - Green checkmark for checkboxes
+
+Pokedex_Default_Mastery_NatureChart.png - Nature table
+
+Pokedex_Default_Mastery_NatureChartUnlocked.png - Backdrop for owned natures for the Pokémon
+
+Pokedex_Default_Mastery_MasteryProgressBar.png - Mastery progress bar outline
+
+Pokedex_Default_Mastery_MasteryProgressBarOverlay.png - Part of the mastery progress bar that fills up
+
+
+EVOLUTIONS & FORMS
+====
+Pokedex_Default_EvoForm_SpriteBox.png - Box for containing minisprite of mons in an evolution tree
+
+Pokedex_Default_EvoForm_GuideArrow.png - Arrow for linking Pokémon in an evolution tree
+
+
+OTHER
+====
+Mastery_BG.png - Replaces orange "passive unlocked" circle on starter select screens for fully-mastered Pokémon
+
+Mastery_Ribbon.png - Replaces classic win ribbon on starter select and summary screens for fully-mastered Pokémon
+
+Pokedex_SkinsThumb_Placeholder.png - Icon for Placeholder pokedex skin in skins selection menu
