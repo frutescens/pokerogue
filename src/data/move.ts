@@ -2132,9 +2132,9 @@ export class PsychoShiftEffectAttr extends MoveEffectAttr {
         if (user.status) {
           user.scene.queueMessage(getStatusEffectHealText(user.status.effect, getPokemonNameWithAffix(user)));
         }
+        target.trySetStatus(statusToApply, true, user);
         user.resetStatus();
         user.updateInfo();
-        target.trySetStatus(statusToApply, true, user);
       }
 
       return canSetStatus;
