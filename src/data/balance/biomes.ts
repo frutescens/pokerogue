@@ -24,6 +24,12 @@ export function getBiomeName(biome: Biome | -1) {
   }
 }
 
+export interface BiomeData {
+  biome: Biome,
+  biomeLinks: [Biome, integer][],
+
+}
+
 interface BiomeLinks {
   [key: integer]: Biome | (Biome | [Biome, integer])[]
 }
