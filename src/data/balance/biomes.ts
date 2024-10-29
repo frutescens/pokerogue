@@ -1,12 +1,11 @@
 import { Type } from "#app/data/type";
-import * as Utils from "#app/utils";
+import { randInt, getEnumValues } from "#app/utils";
 import { pokemonEvolutions, SpeciesFormEvolution } from "#app/data/balance/pokemon-evolutions";
 import i18next from "i18next";
 import { Biome } from "#enums/biome";
 import { Species } from "#enums/species";
 import { TimeOfDay } from "#enums/time-of-day";
 import { TrainerType } from "#enums/trainer-type";
-// import beautify from "json-beautify";
 
 export function getBiomeName(biome: Biome | -1) {
   if (biome === -1) {
@@ -25,23 +24,23 @@ export function getBiomeName(biome: Biome | -1) {
 }
 
 export interface SpeciesTree {
-  [key: integer]: Species[]
+  [key: number]: Species[]
 }
 
 export interface PokemonPools {
-  [key: integer]: (Species | SpeciesTree)[]
+  [key: number]: (Species | SpeciesTree)[]
 }
 
 export interface BiomeTierPokemonPools {
-  [key: integer]: PokemonPools
+  [key: number /*TimeOfDay*/]: PokemonPools
 }
 
 export interface BiomePokemonPools {
-  [key: integer]: BiomeTierPokemonPools
+  [key: number /*BiomePoolTier*/]: BiomeTierPokemonPools
 }
 
 interface TrainerPool {
-  [key: number]: TrainerType[]
+  [key: number /*BiomePoolTier*/]: TrainerType[]
 }
 
 export enum BiomePoolTier {
@@ -62,11 +61,11 @@ export enum BiomeEffectType {
 }
 
 interface BiomeEffects {
-  [key: number]: [BiomeEffectType, number, number][]
+  [key: number /*TimeOfDay*/]: [BiomeEffectType, number, number][]
 }
 
 interface BiomeData {
-  [key: number]: {
+  [key: number /*Biome*/]: {
     biomeLinks: [Biome, number][],
     biomeTrainers: TrainerPool,
     biomeSpeciesPools: BiomeTierPokemonPools,
@@ -428,11 +427,11 @@ export const biomes: BiomeData = {
 };
 
 interface BiomeLinks {
-  [key: integer]: Biome | (Biome | [Biome, integer])[]
+  [key: number]: Biome | (Biome | [Biome, number])[]
 }
 
 interface BiomeDepths {
-  [key: integer]: [integer, integer]
+  [key: number]: [number, number]
 }
 
 export const biomeLinks: BiomeLinks = {
@@ -479,11 +478,11 @@ export const uncatchableSpecies: Species[] = [];
 
 
 export interface BiomeTierTrainerPools {
-  [key: integer]: TrainerType[]
+  [key: number]: TrainerType[]
 }
 
 export interface BiomeTrainerPools {
-  [key: integer]: BiomeTierTrainerPools
+  [key: number]: BiomeTierTrainerPools
 }
 
 export const biomePokemonPools: BiomePokemonPools = {
@@ -8039,15 +8038,15 @@ export function initBiomes() {
 
   biomeDepths[Biome.TOWN] = [ 0, 1 ];
 
-  const traverseBiome = (biome: Biome, depth: integer) => {
+  const traverseBiome = (biome: Biome, depth: number) => {
     if (biome === Biome.END) {
       const biomeList = Object.keys(Biome).filter(key => !isNaN(Number(key)));
       biomeList.pop(); // Removes Biome.END from the list
-      const randIndex = Utils.randInt(biomeList.length, 1); // Will never be Biome.TOWN
+      const randIndex = randInt(biomeList.length, 1); // Will never be Biome.TOWN
       biome = Biome[biomeList[randIndex]];
     }
-    const linkedBiomes: (Biome | [ Biome, integer ])[] = Array.isArray(biomeLinks[biome])
-      ? biomeLinks[biome] as (Biome | [ Biome, integer ])[]
+    const linkedBiomes: (Biome | [ Biome, number ])[] = Array.isArray(biomeLinks[biome])
+      ? biomeLinks[biome] as (Biome | [ Biome, number ])[]
       : [ biomeLinks[biome] as Biome ];
     for (const linkedBiomeEntry of linkedBiomes) {
       const linkedBiome = !Array.isArray(linkedBiomeEntry)
@@ -8064,17 +8063,17 @@ export function initBiomes() {
   };
 
   traverseBiome(Biome.TOWN, 0);
-  biomeDepths[Biome.END] = [ Object.values(biomeDepths).map(d => d[0]).reduce((max: integer, value: integer) => Math.max(max, value), 0) + 1, 1 ];
+  biomeDepths[Biome.END] = [ Object.values(biomeDepths).map(d => d[0]).reduce((max: number, value: number) => Math.max(max, value), 0) + 1, 1 ];
 
-  for (const biome of Utils.getEnumValues(Biome)) {
+  for (const biome of getEnumValues(Biome)) {
     biomePokemonPools[biome] = {};
     biomeTrainerPools[biome] = {};
 
-    for (const tier of Utils.getEnumValues(BiomePoolTier)) {
+    for (const tier of getEnumValues(BiomePoolTier)) {
       biomePokemonPools[biome][tier] = {};
       biomeTrainerPools[biome][tier] = [];
 
-      for (const tod of Utils.getEnumValues(TimeOfDay)) {
+      for (const tod of getEnumValues(TimeOfDay)) {
         biomePokemonPools[biome][tier][tod] = [];
       }
     }
