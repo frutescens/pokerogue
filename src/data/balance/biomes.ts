@@ -24,11 +24,90 @@ export function getBiomeName(biome: Biome | -1) {
   }
 }
 
-export interface BiomeData {
-  biome: Biome,
-  biomeLinks: [Biome, integer][],
-
+export interface SpeciesTree {
+  [key: integer]: Species[]
 }
+
+export interface PokemonPools {
+  [key: integer]: (Species | SpeciesTree)[]
+}
+
+export interface BiomeTierPokemonPools {
+  [key: integer]: PokemonPools
+}
+
+export interface BiomePokemonPools {
+  [key: integer]: BiomeTierPokemonPools
+}
+
+interface trainerPool {
+  [key: number]: TrainerType[]
+}
+
+export enum BiomePoolTier {
+  COMMON,
+  UNCOMMON,
+  RARE,
+  SUPER_RARE,
+  ULTRA_RARE,
+  BOSS,
+  BOSS_RARE,
+  BOSS_SUPER_RARE,
+  BOSS_ULTRA_RARE
+}
+
+interface BiomeData {
+  [key: number]: {
+    biomeLinks: [Biome, number][],
+    biomeTrainers: trainerPool,
+    biomeSpeciesPools: BiomeTierPokemonPools
+  }
+}
+
+export const biomes: BiomeData = {
+  [Biome.TOWN]: {
+    biomeLinks: [[ Biome.PLAINS, 100 ]],
+    biomeSpeciesPools: {
+      [BiomePoolTier.COMMON]: {
+        [TimeOfDay.DAWN]: [{ 1: [ Species.CATERPIE ], 7: [ Species.METAPOD ]}, Species.SENTRET, Species.LEDYBA, Species.HOPPIP, Species.SUNKERN, Species.STARLY, Species.PIDOVE, Species.COTTONEE, { 1: [ Species.SCATTERBUG ], 9: [ Species.SPEWPA ]}, Species.YUNGOOS, Species.SKWOVET ],
+        [TimeOfDay.DAY]: [{ 1: [ Species.CATERPIE ], 7: [ Species.METAPOD ]}, Species.SENTRET, Species.HOPPIP, Species.SUNKERN, Species.SILCOON, Species.STARLY, Species.PIDOVE, Species.COTTONEE, { 1: [ Species.SCATTERBUG ], 9: [ Species.SPEWPA ]}, Species.YUNGOOS, Species.SKWOVET ],
+        [TimeOfDay.DUSK]: [{ 1: [ Species.WEEDLE ], 7: [ Species.KAKUNA ]}, Species.POOCHYENA, Species.PATRAT, Species.PURRLOIN, Species.BLIPBUG ],
+        [TimeOfDay.NIGHT]: [{ 1: [ Species.WEEDLE ], 7: [ Species.KAKUNA ]}, Species.HOOTHOOT, Species.SPINARAK, Species.POOCHYENA, Species.CASCOON, Species.PATRAT, Species.PURRLOIN, Species.BLIPBUG ],
+        [TimeOfDay.ALL]: [ Species.PIDGEY, Species.RATTATA, Species.SPEAROW, Species.ZIGZAGOON, Species.WURMPLE, Species.TAILLOW, Species.BIDOOF, Species.LILLIPUP, Species.FLETCHLING, Species.WOOLOO, Species.LECHONK ]
+      },
+      [BiomePoolTier.UNCOMMON]: {
+        [TimeOfDay.DAWN]: [ Species.BELLSPROUT, Species.POOCHYENA, Species.LOTAD, Species.SKITTY, Species.COMBEE, Species.CHERUBI, Species.PATRAT, Species.MINCCINO, Species.PAWMI ],
+        [TimeOfDay.DAY]: [ Species.NIDORAN_F, Species.NIDORAN_M, Species.BELLSPROUT, Species.POOCHYENA, Species.LOTAD, Species.SKITTY, Species.COMBEE, Species.CHERUBI, Species.PATRAT, Species.MINCCINO, Species.PAWMI ],
+        [TimeOfDay.DUSK]: [ Species.EKANS, Species.ODDISH, Species.MEOWTH, Species.SPINARAK, Species.SEEDOT, Species.SHROOMISH, Species.KRICKETOT, Species.VENIPEDE ],
+        [TimeOfDay.NIGHT]: [ Species.EKANS, Species.ODDISH, Species.PARAS, Species.VENONAT, Species.MEOWTH, Species.SEEDOT, Species.SHROOMISH, Species.KRICKETOT, Species.VENIPEDE ],
+        [TimeOfDay.ALL]: [ Species.NINCADA, Species.WHISMUR, Species.FIDOUGH ]
+      },
+      [BiomePoolTier.RARE]: { [TimeOfDay.DAWN]: [ Species.TANDEMAUS ], [TimeOfDay.DAY]: [ Species.TANDEMAUS ], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [], [TimeOfDay.ALL]: [ Species.ABRA, Species.SURSKIT, Species.ROOKIDEE ]},
+      [BiomePoolTier.SUPER_RARE]: { [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [], [TimeOfDay.ALL]: [ Species.EEVEE, Species.RALTS ]},
+      [BiomePoolTier.ULTRA_RARE]: { [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [], [TimeOfDay.ALL]: [ Species.DITTO ]},
+      [BiomePoolTier.BOSS]: { [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [], [TimeOfDay.ALL]: []},
+      [BiomePoolTier.BOSS_RARE]: { [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [], [TimeOfDay.ALL]: []},
+      [BiomePoolTier.BOSS_SUPER_RARE]: { [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [], [TimeOfDay.ALL]: []},
+      [BiomePoolTier.BOSS_ULTRA_RARE]: { [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [], [TimeOfDay.ALL]: []}
+    },
+    biomeTrainers: {
+      [BiomePoolTier.COMMON]: [ TrainerType.YOUNGSTER ],
+      [BiomePoolTier.UNCOMMON]: [],
+      [BiomePoolTier.RARE]: [],
+      [BiomePoolTier.SUPER_RARE]: [],
+      [BiomePoolTier.ULTRA_RARE]: [],
+      [BiomePoolTier.BOSS]: [],
+      [BiomePoolTier.BOSS_RARE]: [],
+      [BiomePoolTier.BOSS_SUPER_RARE]: [],
+      [BiomePoolTier.BOSS_ULTRA_RARE]: []
+    }
+  },
+  [Biome.PLAINS]: {
+    biomeLinks: [[ Biome.GRASS, 34 ], [ Biome.METROPOLIS, 33 ], [ Biome.LAKE, 33 ]],
+    biomeSpeciesPools: {},
+    biomeTrainers: {}
+  }
+};
 
 interface BiomeLinks {
   [key: integer]: Biome | (Biome | [Biome, integer])[]
@@ -77,35 +156,9 @@ export const biomeLinks: BiomeLinks = {
 
 export const biomeDepths: BiomeDepths = {};
 
-export enum BiomePoolTier {
-  COMMON,
-  UNCOMMON,
-  RARE,
-  SUPER_RARE,
-  ULTRA_RARE,
-  BOSS,
-  BOSS_RARE,
-  BOSS_SUPER_RARE,
-  BOSS_ULTRA_RARE
-}
 
 export const uncatchableSpecies: Species[] = [];
 
-export interface SpeciesTree {
-  [key: integer]: Species[]
-}
-
-export interface PokemonPools {
-  [key: integer]: (Species | SpeciesTree)[]
-}
-
-export interface BiomeTierPokemonPools {
-  [key: integer]: PokemonPools
-}
-
-export interface BiomePokemonPools {
-  [key: integer]: BiomeTierPokemonPools
-}
 
 export interface BiomeTierTrainerPools {
   [key: integer]: TrainerType[]
