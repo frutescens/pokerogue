@@ -545,6 +545,63 @@ export const biomes: BiomeData = {
     biomeEffects: {
       [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [], [TimeOfDay.ALL]: []
     }
+  },
+  [Biome.BEACH]: {
+    biomeLinks: [[ Biome.SEA, 75 ], [ Biome.ISLAND, 25 ]],
+    biomeSpeciesPools: {
+      [BiomePoolTier.COMMON]: {
+        [TimeOfDay.DAWN]: [{ 1: [ Species.STARYU ], 30: [ Species.STARMIE ]}],
+        [TimeOfDay.DAY]: [{ 1: [ Species.STARYU ], 30: [ Species.STARMIE ]}],
+        [TimeOfDay.DUSK]: [ Species.SHELLDER ],
+        [TimeOfDay.NIGHT]: [ Species.SHELLDER ],
+        [TimeOfDay.ALL]: [{ 1: [ Species.KRABBY ], 28: [ Species.KINGLER ]}, { 1: [ Species.CORPHISH ], 30: [ Species.CRAWDAUNT ]}, { 1: [ Species.DWEBBLE ], 34: [ Species.CRUSTLE ]}, { 1: [ Species.BINACLE ], 39: [ Species.BARBARACLE ]}, { 1: [ Species.MAREANIE ], 38: [ Species.TOXAPEX ]}, { 1: [ Species.WIGLETT ], 26: [ Species.WUGTRIO ]}]
+      },
+      [BiomePoolTier.UNCOMMON]: {
+        [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [],
+        [TimeOfDay.ALL]: [{ 1: [ Species.BURMY ], 20: [ Species.WORMADAM ]}, { 1: [ Species.CLAUNCHER ], 37: [ Species.CLAWITZER ]}, { 1: [ Species.SANDYGAST ], 42: [ Species.PALOSSAND ]}]
+      },
+      [BiomePoolTier.RARE]: {
+        [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [],
+        [TimeOfDay.ALL]: [{ 1: [ Species.QUAXLY ], 16: [ Species.QUAXWELL ], 36: [ Species.QUAQUAVAL ]}, Species.TATSUGIRI ]
+      },
+      [BiomePoolTier.SUPER_RARE]: {
+        [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [],
+        [TimeOfDay.ALL]: [{ 1: [ Species.TIRTOUGA ], 37: [ Species.CARRACOSTA ]}]
+      },
+      [BiomePoolTier.ULTRA_RARE]: {
+        [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [],
+        [TimeOfDay.ALL]: [ Species.CRESSELIA, Species.KELDEO, Species.TAPU_FINI ]
+      },
+      [BiomePoolTier.BOSS]: {
+        [TimeOfDay.DAWN]: [ Species.STARMIE ],
+        [TimeOfDay.DAY]: [ Species.STARMIE ],
+        [TimeOfDay.DUSK]: [ Species.CLOYSTER ],
+        [TimeOfDay.NIGHT]: [ Species.CLOYSTER ],
+        [TimeOfDay.ALL]: [ Species.KINGLER, Species.CRAWDAUNT, Species.WORMADAM, Species.CRUSTLE, Species.BARBARACLE, Species.CLAWITZER, Species.TOXAPEX, Species.PALOSSAND ]
+      },
+      [BiomePoolTier.BOSS_RARE]: {
+        [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [],
+        [TimeOfDay.ALL]: [ Species.CARRACOSTA, Species.QUAQUAVAL ]
+      },
+      [BiomePoolTier.BOSS_SUPER_RARE]: {
+        [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [],
+        [TimeOfDay.ALL]: [ Species.CRESSELIA, Species.KELDEO, Species.TAPU_FINI ]
+      },
+      [BiomePoolTier.BOSS_ULTRA_RARE]: {
+        [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [], [TimeOfDay.ALL]: []
+      }
+    },
+    biomeTrainers: {
+      [BiomePoolTier.COMMON]: [ TrainerType.FISHERMAN, TrainerType.PARASOL_LADY, TrainerType.SAILOR ],
+      [BiomePoolTier.UNCOMMON]: [ TrainerType.ACE_TRAINER, TrainerType.BREEDER ],
+      [BiomePoolTier.RARE]: [ TrainerType.BLACK_BELT ],
+      [BiomePoolTier.SUPER_RARE]: [], [BiomePoolTier.ULTRA_RARE]: [],
+      [BiomePoolTier.BOSS]: [ TrainerType.MISTY, TrainerType.KOFU ],
+      [BiomePoolTier.BOSS_RARE]: [], [BiomePoolTier.BOSS_SUPER_RARE]: [], [BiomePoolTier.BOSS_ULTRA_RARE]: []
+    },
+    biomeEffects: {
+      [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [], [TimeOfDay.ALL]: []
+    }
   }
 };
 
@@ -1773,28 +1830,6 @@ export const biomeTrainerPools: BiomeTrainerPools = {
     [BiomePoolTier.BOSS_ULTRA_RARE]: []
   },
 
-  [Biome.SEA]: {
-    [BiomePoolTier.COMMON]: [ TrainerType.SWIMMER, TrainerType.SAILOR ],
-    [BiomePoolTier.UNCOMMON]: [],
-    [BiomePoolTier.RARE]: [],
-    [BiomePoolTier.SUPER_RARE]: [],
-    [BiomePoolTier.ULTRA_RARE]: [],
-    [BiomePoolTier.BOSS]: [ TrainerType.MARLON ],
-    [BiomePoolTier.BOSS_RARE]: [],
-    [BiomePoolTier.BOSS_SUPER_RARE]: [],
-    [BiomePoolTier.BOSS_ULTRA_RARE]: []
-  },
-  [Biome.SWAMP]: {
-    [BiomePoolTier.COMMON]: [],
-    [BiomePoolTier.UNCOMMON]: [ TrainerType.ACE_TRAINER ],
-    [BiomePoolTier.RARE]: [ TrainerType.BLACK_BELT ],
-    [BiomePoolTier.SUPER_RARE]: [],
-    [BiomePoolTier.ULTRA_RARE]: [],
-    [BiomePoolTier.BOSS]: [ TrainerType.JANINE, TrainerType.ROXIE ],
-    [BiomePoolTier.BOSS_RARE]: [],
-    [BiomePoolTier.BOSS_SUPER_RARE]: [],
-    [BiomePoolTier.BOSS_ULTRA_RARE]: []
-  },
   [Biome.BEACH]: {
     [BiomePoolTier.COMMON]: [ TrainerType.FISHERMAN, TrainerType.PARASOL_LADY, TrainerType.SAILOR ],
     [BiomePoolTier.UNCOMMON]: [ TrainerType.ACE_TRAINER, TrainerType.BREEDER ],
