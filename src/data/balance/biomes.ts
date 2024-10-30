@@ -672,10 +672,6 @@ interface BiomeDepths {
 }
 
 export const biomeLinks: BiomeLinks = {
-  [Biome.SEA]: [ Biome.SEABED, Biome.ICE_CAVE ],
-  [Biome.SWAMP]: [ Biome.GRAVEYARD, Biome.TALL_GRASS ],
-  [Biome.BEACH]: [ Biome.SEA, [ Biome.ISLAND, 2 ]],
-  [Biome.LAKE]: [ Biome.BEACH, Biome.SWAMP, Biome.CONSTRUCTION_SITE ],
   [Biome.SEABED]: [ Biome.CAVE, [ Biome.VOLCANO, 3 ]],
   [Biome.MOUNTAIN]: [ Biome.VOLCANO, [ Biome.WASTELAND, 2 ], [ Biome.SPACE, 3 ]],
   [Biome.BADLANDS]: [ Biome.DESERT, Biome.MOUNTAIN ],
