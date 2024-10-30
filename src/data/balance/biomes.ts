@@ -602,6 +602,64 @@ export const biomes: BiomeData = {
     biomeEffects: {
       [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [], [TimeOfDay.ALL]: []
     }
+  },
+  [Biome.LAKE]: {
+    biomeLinks: [[ Biome.BEACH, 34 ], [ Biome.SWAMP, 33 ], [ Biome.CONSTRUCTION_SITE, 33 ]],
+    biomeSpeciesPools: {
+      [BiomePoolTier.COMMON]: {
+        [TimeOfDay.DAWN]: [{ 1: [ Species.LOTAD ], 14: [ Species.LOMBRE ]}, { 1: [ Species.DUCKLETT ], 35: [ Species.SWANNA ]}],
+        [TimeOfDay.DAY]: [{ 1: [ Species.LOTAD ], 14: [ Species.LOMBRE ]}, { 1: [ Species.DUCKLETT ], 35: [ Species.SWANNA ]}],
+        [TimeOfDay.DUSK]: [{ 1: [ Species.MARILL ], 18: [ Species.AZUMARILL ]}],
+        [TimeOfDay.NIGHT]: [{ 1: [ Species.MARILL ], 18: [ Species.AZUMARILL ]}],
+        [TimeOfDay.ALL]: [{ 1: [ Species.PSYDUCK ], 33: [ Species.GOLDUCK ]}, { 1: [ Species.GOLDEEN ], 33: [ Species.SEAKING ]}, { 1: [ Species.MAGIKARP ], 20: [ Species.GYARADOS ]}, { 1: [ Species.CHEWTLE ], 22: [ Species.DREDNAW ]}]
+      },
+      [BiomePoolTier.UNCOMMON]: {
+        [TimeOfDay.DAWN]: [{ 1: [ Species.DEWPIDER ], 22: [ Species.ARAQUANID ]}],
+        [TimeOfDay.DAY]: [{ 1: [ Species.DEWPIDER ], 22: [ Species.ARAQUANID ]}],
+        [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [],
+        [TimeOfDay.ALL]: [{ 1: [ Species.SLOWPOKE ], 37: [ Species.SLOWBRO ]}, { 1: [ Species.WOOPER ], 20: [ Species.QUAGSIRE ]}, { 1: [ Species.SURSKIT ], 22: [ Species.MASQUERAIN ]}, Species.WISHIWASHI, Species.FLAMIGO ]
+      },
+      [BiomePoolTier.RARE]: {
+        [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [],
+        [TimeOfDay.ALL]: [{ 1: [ Species.SQUIRTLE ], 16: [ Species.WARTORTLE ], 36: [ Species.BLASTOISE ]}, { 1: [ Species.OSHAWOTT ], 17: [ Species.DEWOTT ], 36: [ Species.SAMUROTT ]}, { 1: [ Species.FROAKIE ], 16: [ Species.FROGADIER ], 36: [ Species.GRENINJA ]}, { 1: [ Species.SOBBLE ], 16: [ Species.DRIZZILE ], 35: [ Species.INTELEON ]}]
+      },
+      [BiomePoolTier.SUPER_RARE]: {
+        [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [],
+        [TimeOfDay.ALL]: [ Species.VAPOREON, Species.SLOWKING ]
+      },
+      [BiomePoolTier.ULTRA_RARE]: {
+        [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [],
+        [TimeOfDay.ALL]: [ Species.SUICUNE, Species.MESPRIT ]
+      },
+      [BiomePoolTier.BOSS]: {
+        [TimeOfDay.DAWN]: [ Species.SWANNA, Species.ARAQUANID ],
+        [TimeOfDay.DAY]: [ Species.SWANNA, Species.ARAQUANID ],
+        [TimeOfDay.DUSK]: [ Species.AZUMARILL ],
+        [TimeOfDay.NIGHT]: [ Species.AZUMARILL ],
+        [TimeOfDay.ALL]: [ Species.GOLDUCK, Species.SLOWBRO, Species.SEAKING, Species.GYARADOS, Species.MASQUERAIN, Species.WISHIWASHI, Species.DREDNAW ]
+      },
+      [BiomePoolTier.BOSS_RARE]: {
+        [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [],
+        [TimeOfDay.ALL]: [ Species.BLASTOISE, Species.VAPOREON, Species.SLOWKING, Species.SAMUROTT, Species.GRENINJA, Species.INTELEON ]},
+      [BiomePoolTier.BOSS_SUPER_RARE]: {
+        [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [],
+        [TimeOfDay.ALL]: [ Species.SUICUNE, Species.MESPRIT ]
+      },
+      [BiomePoolTier.BOSS_ULTRA_RARE]: {
+        [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [], [TimeOfDay.ALL]: []
+      }
+    },
+    biomeTrainers: {
+      [BiomePoolTier.COMMON]: [ TrainerType.BREEDER, TrainerType.FISHERMAN ],
+      [BiomePoolTier.UNCOMMON]: [ TrainerType.ACE_TRAINER ],
+      [BiomePoolTier.RARE]: [ TrainerType.BLACK_BELT ],
+      [BiomePoolTier.SUPER_RARE]: [], [BiomePoolTier.ULTRA_RARE]: [],
+      [BiomePoolTier.BOSS]: [ TrainerType.CRASHER_WAKE ],
+      [BiomePoolTier.BOSS_RARE]: [], [BiomePoolTier.BOSS_SUPER_RARE]: [], [BiomePoolTier.BOSS_ULTRA_RARE]: []
+    },
+    biomeEffects: {
+      [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [], [TimeOfDay.ALL]: []
+    }
   }
 };
 
@@ -689,51 +747,7 @@ export const biomePokemonPools: BiomePokemonPools = {
     [BiomePoolTier.BOSS_SUPER_RARE]: { [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [], [TimeOfDay.ALL]: []},
     [BiomePoolTier.BOSS_ULTRA_RARE]: { [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [], [TimeOfDay.ALL]: []}
   },
-  [Biome.LAKE]: {
-    [BiomePoolTier.COMMON]: {
-      [TimeOfDay.DAWN]: [{ 1: [ Species.LOTAD ], 14: [ Species.LOMBRE ]}, { 1: [ Species.DUCKLETT ], 35: [ Species.SWANNA ]}],
-      [TimeOfDay.DAY]: [{ 1: [ Species.LOTAD ], 14: [ Species.LOMBRE ]}, { 1: [ Species.DUCKLETT ], 35: [ Species.SWANNA ]}],
-      [TimeOfDay.DUSK]: [{ 1: [ Species.MARILL ], 18: [ Species.AZUMARILL ]}],
-      [TimeOfDay.NIGHT]: [{ 1: [ Species.MARILL ], 18: [ Species.AZUMARILL ]}],
-      [TimeOfDay.ALL]: [
-        { 1: [ Species.PSYDUCK ], 33: [ Species.GOLDUCK ]},
-        { 1: [ Species.GOLDEEN ], 33: [ Species.SEAKING ]},
-        { 1: [ Species.MAGIKARP ], 20: [ Species.GYARADOS ]},
-        { 1: [ Species.CHEWTLE ], 22: [ Species.DREDNAW ]}
-      ]
-    },
-    [BiomePoolTier.UNCOMMON]: {
-      [TimeOfDay.DAWN]: [{ 1: [ Species.DEWPIDER ], 22: [ Species.ARAQUANID ]}],
-      [TimeOfDay.DAY]: [{ 1: [ Species.DEWPIDER ], 22: [ Species.ARAQUANID ]}],
-      [TimeOfDay.DUSK]: [],
-      [TimeOfDay.NIGHT]: [],
-      [TimeOfDay.ALL]: [{ 1: [ Species.SLOWPOKE ], 37: [ Species.SLOWBRO ]}, { 1: [ Species.WOOPER ], 20: [ Species.QUAGSIRE ]}, { 1: [ Species.SURSKIT ], 22: [ Species.MASQUERAIN ]}, Species.WISHIWASHI, Species.FLAMIGO ]
-    },
-    [BiomePoolTier.RARE]: {
-      [TimeOfDay.DAWN]: [],
-      [TimeOfDay.DAY]: [],
-      [TimeOfDay.DUSK]: [],
-      [TimeOfDay.NIGHT]: [],
-      [TimeOfDay.ALL]: [
-        { 1: [ Species.SQUIRTLE ], 16: [ Species.WARTORTLE ], 36: [ Species.BLASTOISE ]},
-        { 1: [ Species.OSHAWOTT ], 17: [ Species.DEWOTT ], 36: [ Species.SAMUROTT ]},
-        { 1: [ Species.FROAKIE ], 16: [ Species.FROGADIER ], 36: [ Species.GRENINJA ]},
-        { 1: [ Species.SOBBLE ], 16: [ Species.DRIZZILE ], 35: [ Species.INTELEON ]}
-      ]
-    },
-    [BiomePoolTier.SUPER_RARE]: { [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [], [TimeOfDay.ALL]: [ Species.VAPOREON, Species.SLOWKING ]},
-    [BiomePoolTier.ULTRA_RARE]: { [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [], [TimeOfDay.ALL]: [ Species.SUICUNE, Species.MESPRIT ]},
-    [BiomePoolTier.BOSS]: {
-      [TimeOfDay.DAWN]: [ Species.SWANNA, Species.ARAQUANID ],
-      [TimeOfDay.DAY]: [ Species.SWANNA, Species.ARAQUANID ],
-      [TimeOfDay.DUSK]: [ Species.AZUMARILL ],
-      [TimeOfDay.NIGHT]: [ Species.AZUMARILL ],
-      [TimeOfDay.ALL]: [ Species.GOLDUCK, Species.SLOWBRO, Species.SEAKING, Species.GYARADOS, Species.MASQUERAIN, Species.WISHIWASHI, Species.DREDNAW ]
-    },
-    [BiomePoolTier.BOSS_RARE]: { [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [], [TimeOfDay.ALL]: [ Species.BLASTOISE, Species.VAPOREON, Species.SLOWKING, Species.SAMUROTT, Species.GRENINJA, Species.INTELEON ]},
-    [BiomePoolTier.BOSS_SUPER_RARE]: { [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [], [TimeOfDay.ALL]: [ Species.SUICUNE, Species.MESPRIT ]},
-    [BiomePoolTier.BOSS_ULTRA_RARE]: { [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [], [TimeOfDay.ALL]: []}
-  },
+
   [Biome.SEABED]: {
     [BiomePoolTier.COMMON]: {
       [TimeOfDay.DAWN]: [],
