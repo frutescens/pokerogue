@@ -1260,6 +1260,65 @@ export const biomes: BiomeData = {
     biomeEffects: {
       [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [], [TimeOfDay.ALL]: []
     }
+  },
+  [Biome.MEADOW]: {
+    biomeLinks: [[ Biome.PLAINS, 50 ], [ Biome.FAIRY_CAVE, 50 ]],
+    biomeSpeciesPools: {
+      [BiomePoolTier.COMMON]: {
+        [TimeOfDay.DAWN]: [{ 1: [ Species.LEDYBA ], 18: [ Species.LEDIAN ]}, Species.ROSELIA, Species.COTTONEE, Species.MINCCINO ],
+        [TimeOfDay.DAY]: [ Species.ROSELIA, Species.COTTONEE, Species.MINCCINO ],
+        [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [],
+        [TimeOfDay.ALL]: [{ 1: [ Species.BLITZLE ], 27: [ Species.ZEBSTRIKA ]}, { 1: [ Species.FLABEBE ], 19: [ Species.FLOETTE ]}, { 1: [ Species.CUTIEFLY ], 25: [ Species.RIBOMBEE ]}, { 1: [ Species.GOSSIFLEUR ], 20: [ Species.ELDEGOSS ]}, { 1: [ Species.WOOLOO ], 24: [ Species.DUBWOOL ]}]
+      },
+      [BiomePoolTier.UNCOMMON]: {
+        [TimeOfDay.DAWN]: [{ 1: [ Species.PONYTA ], 40: [ Species.RAPIDASH ]}, { 1: [ Species.SNUBBULL ], 23: [ Species.GRANBULL ]}, { 1: [ Species.SKITTY ], 30: [ Species.DELCATTY ]}, Species.BOUFFALANT, { 1: [ Species.SMOLIV ], 25: [ Species.DOLLIV ], 35: [ Species.ARBOLIVA ]}],
+        [TimeOfDay.DAY]: [{ 1: [ Species.PONYTA ], 40: [ Species.RAPIDASH ]}, { 1: [ Species.SNUBBULL ], 23: [ Species.GRANBULL ]}, { 1: [ Species.SKITTY ], 30: [ Species.DELCATTY ]}, Species.BOUFFALANT, { 1: [ Species.SMOLIV ], 25: [ Species.DOLLIV ], 35: [ Species.ARBOLIVA ]}],
+        [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [],
+        [TimeOfDay.ALL]: [{ 1: [ Species.JIGGLYPUFF ], 30: [ Species.WIGGLYTUFF ]}, { 1: [ Species.MAREEP ], 15: [ Species.FLAAFFY ], 30: [ Species.AMPHAROS ]}, { 1: [ Species.RALTS ], 20: [ Species.KIRLIA ], 30: [ Species.GARDEVOIR ]}, { 1: [ Species.GLAMEOW ], 38: [ Species.PURUGLY ]}, Species.ORICORIO ]
+      },
+      [BiomePoolTier.RARE]: {
+        [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [],
+        [TimeOfDay.NIGHT]: [ Species.VOLBEAT, Species.ILLUMISE ],
+        [TimeOfDay.ALL]: [ Species.TAUROS, Species.EEVEE, Species.MILTANK, Species.SPINDA, { 1: [ Species.APPLIN ], 30: [ Species.DIPPLIN ]}, { 1: [ Species.SPRIGATITO ], 16: [ Species.FLORAGATO ], 36: [ Species.MEOWSCARADA ]}]
+      },
+      [BiomePoolTier.SUPER_RARE]: {
+        [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [],
+        [TimeOfDay.ALL]: [ Species.CHANSEY, Species.SYLVEON ]
+      },
+      [BiomePoolTier.ULTRA_RARE]: {
+        [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [],
+        [TimeOfDay.ALL]: [ Species.MELOETTA ]
+      },
+      [BiomePoolTier.BOSS]: {
+        [TimeOfDay.DAWN]: [ Species.LEDIAN, Species.GRANBULL, Species.DELCATTY, Species.ROSERADE, Species.CINCCINO, Species.BOUFFALANT, Species.ARBOLIVA ],
+        [TimeOfDay.DAY]: [ Species.GRANBULL, Species.DELCATTY, Species.ROSERADE, Species.CINCCINO, Species.BOUFFALANT, Species.ARBOLIVA ],
+        [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [],
+        [TimeOfDay.ALL]: [ Species.TAUROS, Species.MILTANK, Species.GARDEVOIR, Species.PURUGLY, Species.ZEBSTRIKA, Species.FLORGES, Species.RIBOMBEE, Species.DUBWOOL ]
+      },
+      [BiomePoolTier.BOSS_RARE]: {
+        [TimeOfDay.DAWN]: [ Species.HISUI_LILLIGANT ], [TimeOfDay.DAY]: [ Species.HISUI_LILLIGANT ],
+        [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [],
+        [TimeOfDay.ALL]: [ Species.BLISSEY, Species.SYLVEON, Species.FLAPPLE, Species.APPLETUN, Species.MEOWSCARADA, Species.HYDRAPPLE ]
+      },
+      [BiomePoolTier.BOSS_SUPER_RARE]: {
+        [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [],
+        [TimeOfDay.ALL]: [ Species.MELOETTA ]
+      },
+      [BiomePoolTier.BOSS_ULTRA_RARE]: {
+        [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [],
+        [TimeOfDay.ALL]: [ Species.SHAYMIN ]
+      }
+    },
+    biomeTrainers: {
+      [BiomePoolTier.COMMON]: [ TrainerType.PARASOL_LADY ],
+      [BiomePoolTier.UNCOMMON]: [ TrainerType.ACE_TRAINER, TrainerType.BREEDER ],
+      [BiomePoolTier.RARE]: [], [BiomePoolTier.SUPER_RARE]: [], [BiomePoolTier.ULTRA_RARE]: [],
+      [BiomePoolTier.BOSS]: [ TrainerType.LENORA, TrainerType.MILO ],
+      [BiomePoolTier.BOSS_RARE]: [], [BiomePoolTier.BOSS_SUPER_RARE]: [], [BiomePoolTier.BOSS_ULTRA_RARE]: []
+    },
+    biomeEffects: {
+      [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [], [TimeOfDay.ALL]: []
+    }
   }
 };
 
@@ -1303,65 +1362,7 @@ export interface BiomeTrainerPools {
 }
 
 export const biomePokemonPools: BiomePokemonPools = {
-  [Biome.MEADOW]: {
-    [BiomePoolTier.COMMON]: {
-      [TimeOfDay.DAWN]: [{ 1: [ Species.LEDYBA ], 18: [ Species.LEDIAN ]}, Species.ROSELIA, Species.COTTONEE, Species.MINCCINO ],
-      [TimeOfDay.DAY]: [ Species.ROSELIA, Species.COTTONEE, Species.MINCCINO ],
-      [TimeOfDay.DUSK]: [],
-      [TimeOfDay.NIGHT]: [],
-      [TimeOfDay.ALL]: [
-        { 1: [ Species.BLITZLE ], 27: [ Species.ZEBSTRIKA ]},
-        { 1: [ Species.FLABEBE ], 19: [ Species.FLOETTE ]},
-        { 1: [ Species.CUTIEFLY ], 25: [ Species.RIBOMBEE ]},
-        { 1: [ Species.GOSSIFLEUR ], 20: [ Species.ELDEGOSS ]},
-        { 1: [ Species.WOOLOO ], 24: [ Species.DUBWOOL ]}
-      ]
-    },
-    [BiomePoolTier.UNCOMMON]: {
-      [TimeOfDay.DAWN]: [
-        { 1: [ Species.PONYTA ], 40: [ Species.RAPIDASH ]},
-        { 1: [ Species.SNUBBULL ], 23: [ Species.GRANBULL ]},
-        { 1: [ Species.SKITTY ], 30: [ Species.DELCATTY ]},
-        Species.BOUFFALANT,
-        { 1: [ Species.SMOLIV ], 25: [ Species.DOLLIV ], 35: [ Species.ARBOLIVA ]}
-      ],
-      [TimeOfDay.DAY]: [
-        { 1: [ Species.PONYTA ], 40: [ Species.RAPIDASH ]},
-        { 1: [ Species.SNUBBULL ], 23: [ Species.GRANBULL ]},
-        { 1: [ Species.SKITTY ], 30: [ Species.DELCATTY ]},
-        Species.BOUFFALANT,
-        { 1: [ Species.SMOLIV ], 25: [ Species.DOLLIV ], 35: [ Species.ARBOLIVA ]}
-      ],
-      [TimeOfDay.DUSK]: [],
-      [TimeOfDay.NIGHT]: [],
-      [TimeOfDay.ALL]: [
-        { 1: [ Species.JIGGLYPUFF ], 30: [ Species.WIGGLYTUFF ]},
-        { 1: [ Species.MAREEP ], 15: [ Species.FLAAFFY ], 30: [ Species.AMPHAROS ]},
-        { 1: [ Species.RALTS ], 20: [ Species.KIRLIA ], 30: [ Species.GARDEVOIR ]},
-        { 1: [ Species.GLAMEOW ], 38: [ Species.PURUGLY ]},
-        Species.ORICORIO
-      ]
-    },
-    [BiomePoolTier.RARE]: {
-      [TimeOfDay.DAWN]: [],
-      [TimeOfDay.DAY]: [],
-      [TimeOfDay.DUSK]: [],
-      [TimeOfDay.NIGHT]: [ Species.VOLBEAT, Species.ILLUMISE ],
-      [TimeOfDay.ALL]: [ Species.TAUROS, Species.EEVEE, Species.MILTANK, Species.SPINDA, { 1: [ Species.APPLIN ], 30: [ Species.DIPPLIN ]}, { 1: [ Species.SPRIGATITO ], 16: [ Species.FLORAGATO ], 36: [ Species.MEOWSCARADA ]}]
-    },
-    [BiomePoolTier.SUPER_RARE]: { [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [], [TimeOfDay.ALL]: [ Species.CHANSEY, Species.SYLVEON ]},
-    [BiomePoolTier.ULTRA_RARE]: { [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [], [TimeOfDay.ALL]: [ Species.MELOETTA ]},
-    [BiomePoolTier.BOSS]: {
-      [TimeOfDay.DAWN]: [ Species.LEDIAN, Species.GRANBULL, Species.DELCATTY, Species.ROSERADE, Species.CINCCINO, Species.BOUFFALANT, Species.ARBOLIVA ],
-      [TimeOfDay.DAY]: [ Species.GRANBULL, Species.DELCATTY, Species.ROSERADE, Species.CINCCINO, Species.BOUFFALANT, Species.ARBOLIVA ],
-      [TimeOfDay.DUSK]: [],
-      [TimeOfDay.NIGHT]: [],
-      [TimeOfDay.ALL]: [ Species.TAUROS, Species.MILTANK, Species.GARDEVOIR, Species.PURUGLY, Species.ZEBSTRIKA, Species.FLORGES, Species.RIBOMBEE, Species.DUBWOOL ]
-    },
-    [BiomePoolTier.BOSS_RARE]: { [TimeOfDay.DAWN]: [ Species.HISUI_LILLIGANT ], [TimeOfDay.DAY]: [ Species.HISUI_LILLIGANT ], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [], [TimeOfDay.ALL]: [ Species.BLISSEY, Species.SYLVEON, Species.FLAPPLE, Species.APPLETUN, Species.MEOWSCARADA, Species.HYDRAPPLE ]},
-    [BiomePoolTier.BOSS_SUPER_RARE]: { [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [], [TimeOfDay.ALL]: [ Species.MELOETTA ]},
-    [BiomePoolTier.BOSS_ULTRA_RARE]: { [TimeOfDay.DAWN]: [], [TimeOfDay.DAY]: [], [TimeOfDay.DUSK]: [], [TimeOfDay.NIGHT]: [], [TimeOfDay.ALL]: [ Species.SHAYMIN ]}
-  },
+
   [Biome.POWER_PLANT]: {
     [BiomePoolTier.COMMON]: {
       [TimeOfDay.DAWN]: [],
