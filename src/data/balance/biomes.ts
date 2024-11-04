@@ -2012,13 +2012,6 @@ export const biomePokemonPools: BiomePokemonPools = {
 };
 
 export const biomeTrainerPools: BiomeTrainerPools = {
-  [Biome.RUINS]: {
-    [BiomePoolTier.COMMON]: [ TrainerType.PSYCHIC, TrainerType.SCIENTIST ],
-    [BiomePoolTier.UNCOMMON]: [ TrainerType.ACE_TRAINER, TrainerType.BLACK_BELT ],
-    [BiomePoolTier.RARE]: [], [BiomePoolTier.SUPER_RARE]: [], [BiomePoolTier.ULTRA_RARE]: [],
-    [BiomePoolTier.BOSS]: [ TrainerType.SABRINA, TrainerType.TATE, TrainerType.LIZA, TrainerType.TULIP ],
-    [BiomePoolTier.BOSS_RARE]: [], [BiomePoolTier.BOSS_SUPER_RARE]: [], [BiomePoolTier.BOSS_ULTRA_RARE]: []
-  },
   [Biome.WASTELAND]: {
     [BiomePoolTier.COMMON]: [ TrainerType.VETERAN ],
     [BiomePoolTier.UNCOMMON]: [], [BiomePoolTier.RARE]: [], [BiomePoolTier.SUPER_RARE]: [], [BiomePoolTier.ULTRA_RARE]: [],
