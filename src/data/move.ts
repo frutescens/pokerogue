@@ -9404,8 +9404,9 @@ export function initMoves() {
       .attr(AddArenaTagAttr, ArenaTagType.QUICK_GUARD, 1, true, true)
       .condition(failIfLastCondition),
     new SelfStatusMove(Moves.ALLY_SWITCH, Type.PSYCHIC, -1, 15, -1, 2, 5)
-      .ignoresProtect()
-      .unimplemented(),
+      .attr(AllySwitchAttr)
+      .condition(failIfSingleBattle)
+      .ignoresProtect(),
     new AttackMove(Moves.SCALD, Type.WATER, MoveCategory.SPECIAL, 80, 100, 15, 30, 0, 5)
       .attr(HealStatusEffectAttr, false, StatusEffect.FREEZE)
       .attr(HealStatusEffectAttr, true, StatusEffect.FREEZE)
