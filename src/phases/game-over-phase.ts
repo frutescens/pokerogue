@@ -189,12 +189,6 @@ export class GameOverPhase extends BattlePhase {
 
   handleUnlocks(): void {
     if (this.isVictory && this.scene.gameMode.isClassic) {
-      if (!this.scene.gameData.unlocks[Unlockables.ENDLESS_MODE]) {
-        this.scene.unshiftPhase(new UnlockPhase(this.scene, Unlockables.ENDLESS_MODE));
-      }
-      if (this.scene.getPlayerParty().filter(p => p.fusionSpecies).length && !this.scene.gameData.unlocks[Unlockables.SPLICED_ENDLESS_MODE]) {
-        this.scene.unshiftPhase(new UnlockPhase(this.scene, Unlockables.SPLICED_ENDLESS_MODE));
-      }
       if (!this.scene.gameData.unlocks[Unlockables.MINI_BLACK_HOLE]) {
         this.scene.unshiftPhase(new UnlockPhase(this.scene, Unlockables.MINI_BLACK_HOLE));
       }

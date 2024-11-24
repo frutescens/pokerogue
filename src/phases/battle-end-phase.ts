@@ -30,7 +30,7 @@ export class BattleEndPhase extends BattlePhase {
     }
 
     // Endless graceful end
-    if (this.scene.gameMode.isEndless && this.scene.currentBattle.waveIndex >= 5850) {
+    if (this.scene.gameMode.isEndless && this.scene.currentBattle.waveIndex >= 1) {
       this.scene.clearPhaseQueue();
       this.scene.unshiftPhase(new GameOverPhase(this.scene, true));
     }

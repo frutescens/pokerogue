@@ -77,7 +77,7 @@ export class TitlePhase extends Phase {
           this.end();
         };
         const { gameData } = this.scene;
-        if (gameData.isUnlocked(Unlockables.ENDLESS_MODE)) {
+        if (gameData.isUnlocked(Unlockables.MINI_BLACK_HOLE)) {
           const options: OptionSelectItem[] = [
             {
               label: GameMode.getModeName(GameModes.CLASSIC),
@@ -92,24 +92,8 @@ export class TitlePhase extends Phase {
                 setModeAndEnd(GameModes.CHALLENGE);
                 return true;
               }
-            },
-            {
-              label: GameMode.getModeName(GameModes.ENDLESS),
-              handler: () => {
-                setModeAndEnd(GameModes.ENDLESS);
-                return true;
-              }
             }
           ];
-          if (gameData.isUnlocked(Unlockables.SPLICED_ENDLESS_MODE)) {
-            options.push({
-              label: GameMode.getModeName(GameModes.SPLICED_ENDLESS),
-              handler: () => {
-                setModeAndEnd(GameModes.SPLICED_ENDLESS);
-                return true;
-              }
-            });
-          }
           options.push({
             label: i18next.t("menu:cancel"),
             handler: () => {
