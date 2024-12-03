@@ -1,7 +1,7 @@
 import { ChargeAnim, initMoveAnim, loadMoveAnimAssets, MoveChargeAnim } from "./battle-anims";
 import { CommandedTag, EncoreTag, GulpMissileTag, HelpingHandTag, SemiInvulnerableTag, ShellTrapTag, StockpilingTag, SubstituteTag, TrappedTag, TypeBoostTag } from "./battler-tags";
 import { getPokemonNameWithAffix } from "../messages";
-import Pokemon, { AttackMoveResult, EnemyPokemon, HitResult, MoveResult, PlayerPokemon, PokemonMove, TurnMove } from "../field/pokemon";
+import Pokemon, { AttackMoveResult, EnemyPokemon, HitResult, FieldPosition, MoveResult, PlayerPokemon, PokemonMove, TurnMove } from "../field/pokemon";
 import { getNonVolatileStatusEffects, getStatusEffectHealText, isNonVolatileStatusEffect } from "./status-effect";
 import { getTypeDamageMultiplier } from "./type";
 import { Type } from "#enums/type";
@@ -7867,6 +7867,34 @@ export class ExposedMoveAttr extends AddBattlerTagAttr {
     user.scene.queueMessage(i18next.t("moveTriggers:exposedMove", { pokemonName: getPokemonNameWithAffix(user), targetPokemonName: getPokemonNameWithAffix(target) }));
 
     return true;
+  }
+}
+
+export class AllySwitchAttr extends MoveEffectAttr {
+  async apply(user: Pokemon, target: Pokemon, move: Move, args: any[]): Promise<boolean> {
+    const ally = user.getAlly();
+    const party = user.isPlayer() ? user.scene.getPlayerParty() : user.scene.getEnemyParty();
+    const userIndex = party.findIndex(x => x.id === user.id);
+    const allyIndex = party.findIndex(x => x.id === ally.id);
+    if (ally.isAllowedInBattle()) {
+      if (user.fieldPosition === FieldPosition.LEFT) {
+        user.setFieldPosition(FieldPosition.RIGHT);
+        ally.setFieldPosition(FieldPosition.LEFT);
+      } else {
+        user.setFieldPosition(FieldPosition.LEFT);
+        ally.setFieldPosition(FieldPosition.RIGHT);
+      }
+      if (user.isPlayer()) {
+        party[userIndex] = (party as PlayerPokemon[]).splice(allyIndex, 1, party[userIndex] as PlayerPokemon)[0];
+      } else {
+        party[userIndex] = (party as EnemyPokemon[]).splice(allyIndex, 1, party[userIndex] as EnemyPokemon)[0];
+      }
+      user.scene.queueMessage(i18next.t("moveTriggers:allySwitch", { user: getPokemonNameWithAffix(user), ally: getPokemonNameWithAffix(ally) }));
+      user.updateInfo();
+      ally.updateInfo();
+      return true;
+    }
+    return false;
   }
 }
 
